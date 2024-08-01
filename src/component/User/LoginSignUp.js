@@ -1,12 +1,12 @@
 import React, { Fragment, useRef, useState, useEffect } from "react";
 import "./LoginSignUp.css";
 import Loader from "../layout/Loader/Loader";
-import { Link,useLocation} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import FaceIcon from "@material-ui/icons/Face";
 import { useDispatch, useSelector } from "react-redux";
-import { clearErrors, login,register} from "../../actions/userActions";
+import { clearErrors, login, register } from "../../actions/userActions";
 import { useAlert } from "react-alert";
 import { useNavigate } from 'react-router-dom';
 const LoginSignUp = ({ history }) => {
@@ -14,7 +14,7 @@ const LoginSignUp = ({ history }) => {
   const alert = useAlert();
   const location = useLocation();
   const navigate = useNavigate();
-  const { error, loading,isAuthenticated} = useSelector(
+  const { error, loading, isAuthenticated } = useSelector(
     (state) => state.user
   );
 
@@ -39,9 +39,9 @@ const LoginSignUp = ({ history }) => {
   const loginSubmit = (e) => {
     e.preventDefault();
     dispatch(login(loginEmail, loginPassword));
-    
+
     // console.log("dbfebjdk")
-}; 
+  };
 
   const registerSubmit = (e) => {
     e.preventDefault();
@@ -51,7 +51,7 @@ const LoginSignUp = ({ history }) => {
     myForm.set("name", name);
     myForm.set("email", email);
     myForm.set("password", password);
-    myForm.set("avatar", avatar); 
+    myForm.set("avatar", avatar);
     console.log("ghvgzn")
     dispatch(register(myForm));
   };
@@ -85,9 +85,9 @@ const LoginSignUp = ({ history }) => {
 
     if (isAuthenticated) {
       const redirectUrl = redirect || "/"; // Use redirect if available, otherwise navigate to the home page
-      navigate(redirect);
+      navigate(redirectUrl);
     }
-  }, [dispatch, error, alert,history,isAuthenticated,redirect]);
+  }, [dispatch, error, alert, history, isAuthenticated, redirect]);
 
   const switchTabs = (e, tab) => {
     if (tab === "login") {

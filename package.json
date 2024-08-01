@@ -68,5 +68,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://192.168.32.98:13000"
+  "proxy": "https://trail-1ax4.onrender.com",
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+  }
 }
